@@ -42,7 +42,6 @@ class Trie:
         return True
 
 
-
 if __name__ == "__main__":
     obj = Trie()
     words = ['jack', 'jacques', 'jaqueline','adam', 'eve']
@@ -51,6 +50,7 @@ if __name__ == "__main__":
         obj.insertNode(word)
     for word in search_words:
         print(obj.search(word))
+    print("------")
     print(obj.searchPrefix('ja'))
     print(obj.searchPrefix('adam'))
     print(obj.searchPrefix('jc'))
