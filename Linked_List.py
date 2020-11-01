@@ -150,6 +150,19 @@ class LinkedList:
             current = nextnode
         self.head = prevnode
 
+    def reverse_recursive(self):
+        def _reverse_recursive(cur, prev):
+            if not cur:
+                return prev
+
+            nxt = cur.next
+            cur.next = prev
+            prev = cur
+            cur = nxt
+            return _reverse_recursive(cur, prev)
+
+        self.head = _reverse_recursive(cur=self.head, prev=None)
+
 
 if __name__ == "__main__":
     linkedList = LinkedList()
