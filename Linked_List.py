@@ -152,17 +152,17 @@ class LinkedList:
 
     def reverse_recursive(self):
 
-        def _reverse_recursive(cur, prev):
-            if not cur:
-                return prev
+        def _reverse_recursive(current, prevnode):
+            if not current:
+                return prevnode
 
-            nxt = cur.next
-            cur.next = prev
-            prev = cur
-            cur = nxt
-            return _reverse_recursive(cur, prev)
+            nextnode = current.next
+            current.next = prevnode
+            prevnode = current
+            current = nextnode
+            return _reverse_recursive(current, prevnode)
 
-        self.head = _reverse_recursive(cur=self.head, prev=None)
+        self.head = _reverse_recursive(current=self.head, prevnode=None)
 
 
 if __name__ == "__main__":
@@ -228,5 +228,7 @@ if __name__ == "__main__":
 
     # reverse a linked list
     linkedList.reverse_iterative()
+    linkedList.printnode()
+    linkedList.reverse_recursive()
     linkedList.printnode()
 
